@@ -1,0 +1,53 @@
+
+.........................
+# Alt + F1
+نمودار در همان شیت
+.........................
+# F11
+نمودار در شیت جدید
+.........................
+# Ctrl + n
+new excel file
+.........................
+# Ctrl + k
+# =HYPERLINK(link_location , friendly_name)
+# Insert > Link
+HyperLink
+.........................
+# Alt + O + D
+# Home > Conditional Formatting
+فرمت های شرطی که به آنها قالب بندی شرطی نیز میگویند برای ایجاد ظاهری متفاوت در سالول ها است
+تا بتوانیم تغییرات موجود در سلول ها را از ظاهر آنها تشخیص دهیم
+.........................
+# Ctrl + E
+خارج کردن دیتا از جدول به صورت تکراری
+.........................
+# Alt + A + V + V
+# Data Validation
+# Data > Data Tools > Data Validation
+کشویی کردن محتویاس یک سلول (اعتبارسنجی داده ها)
+view 2.8:17:00
+.........................
+# Alt + A + M
+# Data > Data Tools > Remove Duplicate
+حذف داده های تکراری
+.........................
+# Data > Sort
+# Data > Filter
+.........................
+# Alt + Shift + Right Arrow
+# Data > Group
+گروه بندی ستون و سطرها
+.........................
+# Ctrl + F3
+# Formulas > Define Names > Define Name
+# Formulas > Define Names > Name Manager
+نام گذاری محدوده ای از سلول ها
+.........................
+# Alt + A + E
+# Data > Data Tools > Text to Columns
+تفکیک دادههای یک سلول به ستون (تیکه تیکه کردن متن)
+.........................
+# Alt + N + V + [T/E/D]
+# Insert > PivotTable
+پیوت تیبل
