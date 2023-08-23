@@ -1,46 +1,19 @@
 """
-- کارهای سیگنال
-    * وقتی میخواهیم بخش‌های مختلف برنامه‌مون رو از یک اتفاق مطلع کنیم
-    * اتصال برنامه‌های مختلف به یکدیگر
+- حالت‌های مختلفی که از سیگنچرها میتونیم استفاده کنیم
+- انواع آن
+    * chains
+        ~ تسک‌ها رو بصورت زنجیره‌وار به هم متصل میکنیم
+        ~ نتیجه‌ی اولی را به دومی و دومی را به سومی و... ارسال میکند
+    * groups
+        ~ وقتی که بخوایم تسک‌ها رو بصورت پارالل اجرا کنیم
+        ~ یه گروه تسک رو باهم ارسال کنیم
+    * chords
+        ~ همه‌ی تسک‌ها رو ارسال میکنه و وقتی همه‌شون درست اجرا شدن یه تسک به عنوان کال‌بک ارسال میکنه
+        ~ وقتی بک‌اند دیتابیس بود میشد ازش استفاده کرد
+            / با بک‌اند ربیت‌ام‌کیو کار نمیکنه
 
-- signals
-    * before_task_publish
-        ~ قبل ارسال تسک
-    * after_task_publish
-        ~ بعد از ارسال تسک
-    * task_prerun
-        ~ قبل از اجرای تسک
-    * task_postrun
-        ~ بعد از اجرای تسک
-    * task_retry
-        ~ زمانی که یه تسک ریترای بشه
-    * task_seccess
-        ~ زمانی که تسک موفقیت‌آمیز باشه
-    * task_failure
-        ~ وقتی تسک فیل میشه
-    * task_internal_error
-        ~ وقتی تسک به ارور داخلی سلری برخورد کنه
-    * task_received
-        ~ وقتی که تسک به دست بروکر میرسه
-    * task_revoked
-        ~ زمانی که تسک شکست بخوره یا توسط ورکر قطع بشه
-    * task_unknown
-        ~ زمانی که تسکی دریافت کنیم که رجیستر نشده باشه
-    * task_rejected
-        ~ زمانی که یه تسک به بروکر بیاد که ناشناخته باشه
-    * celeryd_after_setup
-        ~ بعد از ست‌آپ شدن ورکر
-    * celeryd_init
-        ~ زمانی که ورکر شروع به کار بکنه
-    * worker_init
-        ~ قبل از شروع به کار ورکر
-    * worker_ready
-        ~ وقتی ورکر آماده به کار باشد
-    * worker_shutting_down
-        ~ زمانی که ورکر میخواد خاموش بشه
-    *
 """
-from celery import Celery, signals
+from celery import Celery, chain, group, chord
 from time import sleep
 
 
@@ -53,10 +26,32 @@ def add(a, b, for_partials):
     sleep(15)
     return a + b
 
+@app.task
+def sub(a, b):
+    return a - b
 
-# وقتی که به تسک به ادد ارسال میشه این تابع سیگنال دریافت میکنه
-@signals.task_prerun.connect(sender=add)
-def show(sender=None, **kwargs):
-    print('task before run')
-    print(sender)
-    print(kwargs)
+@app.task
+def pp(v):
+    print(v)
+    return v
+
+"chains"
+result = chain(add.delay(1, 3), add.delay(6), pp.delay())
+# دیدن نتیجه
+print(result().get())
+# دیدن نتیجه‌ی دومی
+print(result().parent.get())
+# دیدن نتیجه‌ی اولی
+print(result().parent.parent.get())
+
+"groups"
+r2 = group(add.delay(1, 3), add.delay(6, 3), pp.delay(2))
+# دیدن نتیجه
+print(r2().get())
+print(r2.completed_count())
+
+"chords"
+r3 = chord(add.delay(1, 3), add.delay(6, 3))(pp.delay(2))
+# دیدن نتیجه
+print(r3().get())
+
