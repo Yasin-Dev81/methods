@@ -16,6 +16,7 @@
         ~ کوچک کردن حروف بزرگ
 
 """
+# 0
 # on "./accounts/models.py"
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
@@ -47,6 +48,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 		return self.is_admin
 
 
+# 1
 # in "./accounts/managers.py"
 from django.contrib.auth.models import BaseUserManager
 
@@ -75,3 +77,11 @@ class UserManager(BaseUserManager):
 		user.is_superuser = True
 		user.save(using=self._db)
 		return user
+
+
+# 2
+# on "./config/settings.py"
+# اضافه کردن یوزر مدل جدید به ستینگ جنگو
+
+AUTH_USER_MODEL = 'accounts.User'
+AUTH_USER_MODEL = '<app-name>.<model-name>'
