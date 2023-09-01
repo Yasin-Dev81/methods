@@ -25,4 +25,5 @@ AWS_STORAGE_BUCKET_NAME = 'django-shop'
 AWS_SERVICE_NAME = 's3'
 # اگه فایلی همنام یکی از فایل‌های قبلی آپلود شود جایگزین شود؟
 AWS_S3_FILE_OVERWRITE = False
+# محل ذخیره فایل‌ها در خود پروژه وقتیکه بخواهیم دان کنیمش
 AWS_LOCAL_STORAGE = f'{BASE_DIR}/aws/'
