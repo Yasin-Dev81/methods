@@ -1,0 +1,25 @@
+hi
+# فرمت کانفیگ‌ش
+
+events {}
+
+http {
+    server {
+        # پورت ورودی
+        listen 80;
+        # آدرسی که قراره باهاش کار بکنیم
+        server_name localhost;
+        # استاتوس کد 200 رو ریترن میکنیم
+        return 200 "Hi wellcome to YasinDev81";
+    }
+
+    server {
+        listen 85;
+        server_name localhost;
+        return 200 "OK";
+    }
+}
+
+# تست کانفیگ نوشته شده
+nginx -t
+nginx -c /path/to/conf -t
