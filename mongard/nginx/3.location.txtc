@@ -1,0 +1,36 @@
+hi
+# مشخص کردن دایرکتوری اپ
+
+# باید مشخص کنیم با کدوم یوزر اجرا بشه تا به ارور پرمیشن دیناید نده
+user yasin_dev81;
+
+events {}
+
+http {
+    # روش اول
+    server {
+        listen 80;
+        server_name localhost;
+        # مشخص کردن دایرکتوری اپ
+        root /home/yasin_n95/nginx_test/;
+    }
+
+    # روش دوم
+    server {
+        listen 85;
+        server_name localhost;
+        # مشخص کردن دایرکتوری اپ
+        root /home/yasin_n95/nginx_test/;
+
+        # مشخص کردن دایرکتوری اپ با پث
+        location / {
+            # مشخص کردن فایل ایندکس
+            index about.html;
+        }
+
+        location /server/ {
+            # مشخص کردن یه دایکتوری جدا برای این پث
+            root /var/lib;
+        }
+    }
+}
