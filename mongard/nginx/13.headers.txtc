@@ -1,0 +1,37 @@
+hi
+# هدرهای سفارشی
+
+# Trying Several Options
+چک میکنه ببینه یه فایلی وجود داره یا نه
+
+
+http {
+    upstream <blalncer-name> {
+        server 127.0.0.1:81;
+        server xxx.sd.com;
+    }
+
+    server {
+        locatin / {
+            listen 80;
+            server_name 127.0.0.1;
+
+            # هدرهای سفارشی
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header Accept-Encoding ""; # خالی کردن هدر
+
+            proxy_pass http://<blalncer-name>
+        }
+    }
+
+    server {
+        listen 81;
+        server_name 127.0.0.1;
+        root /path/yechi;
+        locatin /images/ {
+            # اگه فایل تو دایرکتوری نبود این رو بفرست
+            try_files $uri /path/to/show.html;
+        }
+    }
+}

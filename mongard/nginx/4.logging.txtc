@@ -1,0 +1,46 @@
+hi
+# انواع لاگ‌ها
+- Error log
+    * وقتی کاربر بدون موفقیت به منابعی که میخواست دسترسی پیدا میکنه
+- Access log
+    * وقتی کاربر با موفقیت به منابعی که میخواست دسترسی پیدا میکنه
+
+# سطوح ارور
+- debug
+- info
+- notice
+- warn
+- error
+- crit
+- alert
+- emerg
+
+# مشخص کردن لاگ فایل
+error_log <logfile-path> <sath-eror>;
+# هر سطح اروری مشخص کنیم از اون به پایین ذخیره میشه
+
+- ex:
+user yasin_dev81;
+
+error_log /var/log/nginx/error.log;
+
+events {}
+
+http {
+    server {
+        listen 80;
+        server_name localhost;
+        root /home/yasin_n95/nginx_test/;
+
+        location / {
+            index about.html;
+        }
+
+        location /images/ {
+            root /var/lib;
+            # مشخص کردن یه لاگ فایل جدا برای این اپ
+            error_log var/log/nginx/error_images.log
+            access_log var/log/nginx/access_images.log
+        }
+    }
+}

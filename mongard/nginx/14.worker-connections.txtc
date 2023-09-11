@@ -1,0 +1,7 @@
+hi
+# worker connections
+همزمان چند کانکشن به یه ورکر ارسال بشه
+
+events {
+    worker_connections 512;
+}

@@ -1,0 +1,28 @@
+
+# وب سرور
+یک برنامه‌ای هستش که محتوای اپ ما رو به کاربرا نشون میده
+
+# Forward proxy
+دسترسی مستقیم کاربرا رو به نت محدود میکنه
+باعث میشه شناسایی ما محدود بشه
+
+# Reverse proxy
+نمیذاره کاربرا مستقیما به اپ‌هامون دسترسی پیدا کنن
+- کاربردهاش
+    * load balancing
+        ~ فشار کاری رو بین سرورها پخش میکنه
+    * caching
+        ~ cache html, css, js, ...
+    * ssl encryption
+
+# nginx
+- کاربردهاش
+    * وب سرور
+    * reverse proxy
+
+# install
+sudo apt install nginx
+
+# conf path
+/etc/nginx/nginx.conf
+

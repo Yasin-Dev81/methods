@@ -1,0 +1,26 @@
+hi
+# load balancing methods
+- Round Robin
+    * default
+    * بصورت مساوی پخش میکنه
+- Least Connections
+    * least_conn;
+    * به سروری که کمترین کانکشن داره (خلوت‌تره) ارسال میکنه
+- Ip Hash
+    * ip_hash;
+    * آی‌پی کاربر رو هش میکنه و براساس اون ارسال میکنه
+- Hash
+    * hash $<har-chi> consistent;
+    * hash $request_uri consistent;
+    * براساس اون چیزی که مشخص میکنیم هش میکنه و براساس اون ارسال میکنه
+- Least Time (nginx plus only)
+    * به سروری میفرسته که در کمترین زمان پاسخ بده
+- Random
+    * رندوم ارسال میکنه
+
+
+upstream <blalncer-name> {
+    least_conn;
+    server 127.0.0.1:81;
+    server xxx.sd.com;
+}

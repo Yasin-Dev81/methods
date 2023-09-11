@@ -1,0 +1,16 @@
+hi
+# ارور سفارشی
+
+# with path
+error_page 404 /path/to/error.html;
+error_page 405 505 400 /path/to/yechi.html;
+
+# with url
+server {
+
+    error_page 405 206 /xerror;
+
+    locatin /xerror {
+        root /path/to/directory;
+    }
+}

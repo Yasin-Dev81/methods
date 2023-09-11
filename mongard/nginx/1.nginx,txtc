@@ -1,0 +1,19 @@
+
+# پراسس‌هایی که اجرا میشن
+- nginx master process
+    * فایلای کانفیگ رو میخونه و کانکشن‌ها رو مدیریت میکنه
+    * کاربرها رو مدیریت میکنه
+    * ورکرها رو مدیریت میکنه
+- worker process
+    * ریکوئست‌ها رو پردازش میکنه
+
+# دایرکتیو
+به هر مقدار میگن
+
+- ex1:
+worker_processes auto; # تعداد ورکرها
+
+- ex2: directive in directive
+events {
+    worker_connections 1024;
+}

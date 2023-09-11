@@ -1,0 +1,8 @@
+hi
+# weight
+- هرچه وزن یه سرور بشتر باشه بارش بیشتره
+
+upstream <blalncer-name> {
+    server 127.0.0.1:81 weight=5;
+    server xxx.sd.com;
+}

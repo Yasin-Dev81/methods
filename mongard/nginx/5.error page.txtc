@@ -1,0 +1,51 @@
+hi
+# با کامندلاین میشه سیگنالی رو به مستر پراسس ارسال کرد
+# سطوح سیگنال
+- stop
+    * fast shutdown
+- quit
+    * graceful shutdown
+    * اگه پراسسی در حال اجرا بود صبر میکنه تموم شه
+- reload
+    * reloading the conf file
+- reopen
+    * reopening the log files
+
+# send signal
+nginx -s reload
+
+# ex for directive
+# nginx user
+user yasin_dev81;
+
+# nginx error's
+error_log /var/log/nginx/error.log;
+
+# مشخص کردن تعداد ورکر پراسس
+worker_processes auto;
+# pid = process id
+# به صورت دیفالت لازم نیست بنویسیم مگه اینکه مسیرش رو عوض کرده باشیم
+# وقتی که ری‌استارت میکنیم تغییر میکنه
+pid /run/nginx.pid;
+
+events {}
+
+http {
+    server {
+        listen 80;
+        server_name localhost;
+        root /home/yasin_n95/nginx_test/;
+
+        location / {
+            index about.html;
+        }
+
+        location /images/ {
+            root /var/lib;
+            # کاربر بتونه فایل‌های داخل دایرکتوری رو ببینه
+            autoindex on;
+            # هیچ فایلی رو به عنوان ایندکس نگیره
+            index NO_EXISTENT_INDEX;
+        }
+    }
+}
