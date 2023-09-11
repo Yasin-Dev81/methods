@@ -1,0 +1,27 @@
+hi
+# load balancing
+
+http {
+    upstream <blalncer-name> {
+        server 127.0.0.1:81;
+        server xxx.sd.com;
+        server 127.0.0.1:82 down; # سرور غیرفعال
+        server 197.0.0.1 backup;
+    }
+
+    server {
+        locatin / {
+            listen 80;
+            server_name 127.0.0.1;
+
+            proxy_pass http://<blalncer-name>
+        }
+    }
+
+    server {
+        listen 81;
+        server_name 127.0.0.1;
+        root /path/yechi;
+        locatin / {}
+    }
+}

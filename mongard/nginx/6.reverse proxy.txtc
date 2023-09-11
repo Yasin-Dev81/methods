@@ -1,0 +1,33 @@
+hi
+# mime types
+# تایپ‌های فایل در وب هستن که باعث میشن محتوا به جای دان شدن لود بشه برای ما
+
+- ex:
+user yasin_dev81;
+
+events {}
+
+http {
+    server {
+        # ایمپورت کردن مایم‌تایپ‌ها
+        include /etc/nginx/mime.types; # or: include mime.types;
+        # مشخص کردن دیفالت مایم‌تایپ
+        default_type text/plain;
+        # فشرده کردن دیتای ارسالی
+        gzip on;
+        # مدت زمان روشن بودن کانکشن‌ها
+        keepalive_timeout 35s; # default = 75s
+        # ارسال دیتا بصورت تکه تکه
+        sendfile on;
+        # مشخص کردن حجم هر تکه
+        sendfile_max_chunk 0; # 0 = auto
+
+        listen 80;
+        server_name localhost;
+        root /home/yasin_n95/nginx_test/;
+
+        location / {
+            index about.html;
+        }
+    }
+}

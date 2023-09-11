@@ -1,0 +1,8 @@
+hi
+# variable
+مقداری هستن که با دالر ساین شروع میشن
+
+
+# تغییر فرمت لاگ‌ها
+log_format <format-name> '$remote_addr $remote_user $time_local $request $status $body_bytes_sent $http_user_agent';
+access_log var/log/nginx/access_images.log <format-name>;
