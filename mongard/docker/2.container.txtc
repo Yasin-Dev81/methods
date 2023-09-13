@@ -28,5 +28,5 @@ docker ps
 docker ps -a
 
 # ساخت کانتینر و اجرای ایمیج در آن
-docker run <name>
-
+docker run <image-name>
+docker container run <image-name> # or
