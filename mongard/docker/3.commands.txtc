@@ -1,0 +1,24 @@
+hi
+# لیست کانتینرها
+docker container ls
+docker container ls -a
+
+# ساخت کانتینر و اجرای ایمیج در آن
+docker run [--name <container-name>] <image-name> 
+
+# حذف کردن کانتینرها
+docker rm <container-name>
+
+# حذف تمام کانتینرهای استاپ شده
+docker container prune
+
+# حذف ایمیج
+docker rmi <image-name>
+
+# حذف شدن بعد از اجرا
+docker run --rm <image-name>
+
+# اینتراکتیو اجرا کردن کانتینر
+# واسه اجرا کردن لینوکسا بکار میاد
+docker run -it <image-name>
+
