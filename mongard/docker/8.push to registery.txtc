@@ -1,0 +1,15 @@
+hi
+# عوض کردن تگ
+- لازمه یه تگ یونیک برای ایمجمون ست کنیم تا تو پوش کردن به مشکل نخوریم
+docker image tag <old-image-name>:<old-image-tag> yasindev/<image-name>:<image-tag>
+
+# فرمتها
+- name
+    * username/image-name
+- tag
+    * xx.xx.xx
+
+# پوش کردن ایمیجمون داخل داکرهاب
+docker push <new-image-name>:<image-tag>
+
+docker push yasindev/x-ui:1.2.0 # ex
