@@ -1,0 +1,66 @@
+hi
+# Dockerfile
+برای داکرایز کردن بهش نیاز داریم
+توش مشخص میکنیم برنامه‌مون چجوری کار کنه
+
+# دستورات داکرفایل
+https://docs.docker.com/engine/reference/builder/
+
+# FROM
+- بیس ایمیج رو مشخص میکنه
+FROM [--platform=<platform>] <image>[:<tag>] [AS <name>]
+
+# RUN
+- اجرای یه کامند
+RUN <command>
+
+RUN /bin/bash -c 'source $HOME/.bashrc && echo $HOME' # ex
+RUN ["/bin/bash", "-c", "echo hello"] # or
+
+# ENV
+- ست کردن اینوایرنمنت
+ENV <key>=<value> ...
+
+ENV MY_NAME="John Doe" # ex
+ENV MY_DOG=Rex\ The\ Dog
+ENV MY_CAT=fluffy
+
+# CMD
+- اگه یکی این ایمیج رو اجرا کرد چه اتفاقی بیوفته
+- مثلا جنگو ران بشه
+- فقط یه بار باید استفاده بشه
+CMD command param1 param2
+CMD ["executable","param1","param2"] # ex
+
+# WORKDIR
+- یه دایرکتوری ایجاد میکنه و میره داخلش
+WORKDIR </path/to/workdir>
+
+# LABEL
+- یه سری اطلاعات اظافی رو درباره ایمیج مشخص میکنه
+
+# COPY
+- کپی کردن فایل
+COPY [--chown=<user>:<group>] [--chmod=<perms>] <src>... <dest>
+COPY [--chown=<user>:<group>] [--chmod=<perms>] ["<src>",... "<dest>"] # or
+
+
+# ex
+FROM python:latest
+
+LABEL maintainer="yasin-dev81.ir"
+LABEL version="1.1.0"
+
+WORKDIR /src
+
+COPY main.py /src
+
+CMD ["python", "main.py"]
+
+
+# ساخت ایمیج
+docker image build -t <image-name>:<image-tag> <target-path-for-image>
+
+# ران کردنش
+- تگش خیلی مهمه
+docker run <image-name>:<image-tag>
