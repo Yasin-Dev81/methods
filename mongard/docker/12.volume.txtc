@@ -1,0 +1,34 @@
+hi
+# انواع دیتا در کانتینر
+- non persistent
+    * دیتاهایی که بدردمون نمیخوره
+- persistent
+    * نباید حذف بشن
+
+# docker volume
+اگه بخوایم یه اطلاعاتی از داخل کانتینر روی سیستم ذخیره بشه ازش استفاده میکنیم
+اطلاعات رو پرسیستنت میکنن
+هرچیزی داخل دایرکتوری موردنظر باشه داخل والیوم هم همونجوری میشه
+
+# ساخت یه والیوم
+docker volume create <volume-name>
+
+# لیست والیوم‌ها
+docker volume ls
+
+# دیدن اطلاعات یه والیوم
+docker volume inspect <volume-name>
+
+# حذف یه والیوم
+docker volume rm <volume-name>
+
+# محل ذخیره‌ی والیوم‌ها
+/var/lib/docker/volumes/<volume-name>/_data/
+
+# حذف والیوم‌های بیکار (اونایی که به کانتینری وصل نیستن)
+docker volume prune
+
+# وصل کردن دایرکتوری موردنظر به والیوم
+docker run -v <volume-name>:<directory-path> <image-name>
+
+docker run --mount source=<volume-name>,target=<directory-path> # or

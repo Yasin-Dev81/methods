@@ -1,0 +1,18 @@
+hi
+# کامیت کردن لایه‌های کانتینر
+ساخت ایمیج از یک کانتینر
+
+docker container commit <container-name> <image-name>:<image-tag>
+
+# دیدن تغییرات داخل یه کانتینر
+docker diff <container-name> [-a <author-name> -m <message>]
+- تایپ‌های تغییرات
+    * A
+        ~ add
+        ~ اضافه شده
+    * C
+        ~ change
+        ~ تغییر کرده
+    * D
+        ~ delete
+        ~ حذف شده
