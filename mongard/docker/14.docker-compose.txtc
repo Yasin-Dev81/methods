@@ -1,0 +1,21 @@
+hi
+# docker-compose
+به ما اجازه میده با یه دستور چندتا کانتینر بالا بیاریم
+- روش کار:
+    * create "docker-compose.yml"
+    * داخل فایل نوع سرویس‌ها رو مشخص میکنیم (کانفیگش میکنیم)
+
+
+# ex:
+
+services: # مشخص کننده کانتینرها
+    py: # <container-name>
+        image: python:latest
+
+    rd:
+        image: redis # default: latest
+
+# اجرا داکر کامپوز
+docker compose up
+
+docker compose up -d # با دیتچ

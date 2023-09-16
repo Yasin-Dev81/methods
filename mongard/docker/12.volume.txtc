@@ -30,5 +30,7 @@ docker volume prune
 
 # وصل کردن دایرکتوری موردنظر به والیوم
 docker run -v <volume-name>:<directory-path> <image-name>
+docker run -v <volume-name>:<directory-path>:ro <image-name> # read only
+
 
 docker run --mount source=<volume-name>,target=<directory-path> # or

@@ -1,0 +1,5 @@
+hi
+# به اشتراک گذاشتن یه والیوم بین چند کانتینر
+docker run --volumes-from <volume-name> <image-name>
+
+docker run --volumes-from <volume-name>:ro <image-name> # read only

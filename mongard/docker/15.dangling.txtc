@@ -1,0 +1,19 @@
+hi
+# best tags
+- buster
+    ~ بر پایه دبینه
+- buster-slim
+    ~ lite of buster
+
+# intermediate container
+برای هردستور داکرفایل یه ایمیج جدید ساخته میشه و دستور بعدی روی اون ایمیج ست میشه
+و وقتی ست شد ایمیج جدید ساخته میشه و اون ایمیج (قبلیه) دینگلینگ میشه
+
+# dangling image
+ایمیج‌هایی که اسم و تگ ندارن و فقط کش شدن
+
+# dangling image list
+docker images --filter "dangling=true"
+
+# remove dangling images
+docker rmi $(docker images -q --filter "dangling=true")
