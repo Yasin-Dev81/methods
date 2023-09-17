@@ -1,0 +1,8 @@
+hi
+# save
+- ذخیره کردن ایمیج بصورت فایل
+docker save -o <path-for-image> <image-name>:<image-tag>
+
+# load
+- لود کردن فایل ایمیج در داکرایز
+docker load -i <path-for-image> 

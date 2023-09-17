@@ -1,0 +1,23 @@
+hi
+# اجرای پایتون در پس زمینه
+docker run -tid python
+# دسترسی به لینوکس کانتینر پایتون
+docker exec -ti <container-name-of-python> bash
+
+# restart policy
+# سیاست راه‌اندازی مجدد
+کانتین حق داره در چه حالت‌هایی خودش رو ری‌استارت بکنه؟
+- always
+    * همیشه مگه اینکه خودمون استاپش کنیم
+- unless-stopped
+    * مث بالاییه فقط بعد از ری‌استارت خود داکر نمیتونه ری‌استارت بشه
+- on-failed
+    * وقتی به اروری بخوره
+
+# تنظیم‌ش
+docker run --restart [always] <image-name>
+docker create --restart [always] <image-name>
+
+# دیدن اطلاعات در مورد کانتینر
+docker container inspect <container-name>
+

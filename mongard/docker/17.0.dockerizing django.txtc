@@ -1,0 +1,5 @@
+hi
+# داکرایز کردن جنگو
+
+# دیدن لاگ‌های کانتینر
+docker logs <container-name>

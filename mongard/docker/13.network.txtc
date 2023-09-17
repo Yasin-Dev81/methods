@@ -1,0 +1,31 @@
+hi
+# network
+برای وصل کردن کانتینرها به هم بکار میره
+
+
+# ساخت نتورک
+docker network create <network-name>
+
+# حذف نتورک
+docker network rm <network-name>
+
+# وصل کردن کانتینر به نتورک
+docker network connect <network-name> <container-name>
+
+# قطع اتصال کانتینر به نتورک
+docker network disconnect <network-name> <container-name>
+
+# لیست نتورک‌ها
+docker network ls
+
+- نتورک‌های لوکال داکر
+NETWORK ID     NAME      DRIVER    SCOPE
+ab914562c350   bridge    bridge    local
+668cf1bf7922   host      host      local
+80f1d02c9c92   none      null      local
+
+# اطلاعات نتورک
+docker network inspect <network-name>
+
+# دیدن وضعیت اتصال به کانتینر از بش کانتینر دیگه
+ping <container-name>

@@ -1,0 +1,7 @@
+hi
+# port forwarding
+- وصل کردن یکی از پورت‌های سیستم به پورت کانتینرمون
+docker create <image-name> -p <sys-port>:<container-port>
+
+docker create redis -p 5050:6379
+

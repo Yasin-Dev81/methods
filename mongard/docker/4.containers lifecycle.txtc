@@ -1,0 +1,24 @@
+hi
+# ساخت و اجرای کانتینر در پس زمینه
+# واسه اجرا کردن دیتابیسا بکار میاد
+docker run -d <image-name>
+
+# ساخت کانتینر
+docker create <image-name>
+
+# اجرای کانتینر
+docker start <container-name>
+
+# متوقف کردن اجرای کانتینر
+docker stop <container-name>
+docker kill <container-name> # برای کیل کردن کانتینر
+
+# اجرای کانتینر متوقف شده
+docker start/restart <container-name>
+
+# پاز کردن کانتینر
+# pause
+docker pause <container-name>
+# آنپاز کردن کانتینر
+# un-pause
+docker unpause <container-name>
