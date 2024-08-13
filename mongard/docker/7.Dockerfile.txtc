@@ -61,6 +61,8 @@ CMD ["python", "main.py"]
 # ساخت ایمیج
 docker image build -t <image-name>:<image-tag> <target-path-for-image>
 
+docker build -t <image-name>:<image-tag> <target-path-for-image> --network=host
+
 # ران کردنش
 - تگش خیلی مهمه
 docker run <image-name>:<image-tag>
