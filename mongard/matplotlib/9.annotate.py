@@ -9,15 +9,18 @@ import numpy as np
 x = np.linspace(0, 20, 1000)
 
 
-fig, ax = plt.subplots()
-ax.plot(x, np.cos(x))
+fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)
+
+ax1.plot(x, np.cos(x))
+ax2.plot(x, np.cos(x))
 
 # مساوی کردن محور y
-ax.axis("equal")
+ax1.axis("equal")
+ax2.axis("equal")
 
 
 # مدل معمولی
-ax.annotate(
+ax1.annotate(
     "max",
     # لوکیشن
     xy=(6.28, 1),
@@ -31,7 +34,7 @@ ax.annotate(
     },
 )
 # مدل استایل دار
-ax.annotate(
+ax2.annotate(
     "min",
     xy=(5*np.pi, -1),
     xytext=(2, -6),
