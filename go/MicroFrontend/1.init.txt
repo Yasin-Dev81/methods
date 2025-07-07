@@ -1,0 +1,10 @@
+- init project
+go mod init [project-name]
+
+- build
+go build
+
+- run
+go run [project-name]
+or
+./[project-name]
