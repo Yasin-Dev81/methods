@@ -1,0 +1,11 @@
+# go course
+
+- install
+https://go.dev/
+
+
+- install debuger
+go install github.com/go-delve/delve/cmd/dlv@latest
+
+- دیدن هلپ نصب‌ها
+go help install
